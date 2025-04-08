@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>Interactieve AI Module voor Freelance Trainers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: Arial, sans-serif; padding: 2rem; background-color: #f4f4f4; }
+    h1, h2 { color: #333; }
+    .section { background: white; padding: 1rem; margin-bottom: 1rem; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    textarea, input[type=text], select { width: 100%; padding: 0.5rem; margin-top: 0.5rem; }
+    button { margin-top: 1rem; padding: 0.5rem 1rem; }
+    .output { background: #eef; padding: 0.5rem; margin-top: 0.5rem; border-radius: 5px; }
+    .example-box { background: #fffbe6; border-left: 5px solid #ffd700; padding: 0.5rem; margin-top: 1rem; }
+    .feedback-box { background: #ffe6e6; border-left: 5px solid #ff4d4d; padding: 0.5rem; margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <h1>Interactieve AI Module voor Freelance Trainers</h1>
+
+  <div class="section">
+    <h2>1. Introductie</h2>
+    <p>Deze module leert je hoe je ChatGPT effectief inzet in jouw praktijk als trainer en ondernemer. Gebruik de invulvelden om direct te oefenen met prompts.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Wat is een goede prompt?</h2>
+    <p>Een goede prompt is duidelijk, specifiek en bevat context. Vergelijk de volgende voorbeelden:</p>
+    <div class="example-box">
+      <strong>Slecht voorbeeld:</strong> "Schrijf iets over communicatie"
+    </div>
+    <div class="example-box">
+      <strong>Goed voorbeeld:</strong> "Schrijf een introductietekst over het belang van non-verbale communicatie binnen teamtrainingen voor IT-professionals."
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. Schrijf je eigen prompt</h2>
+    <label for="promptInput">Wat wil je dat ChatGPT voor je doet?</label>
+    <textarea id="promptInput" rows="4"></textarea>
+    <button onclick="showOutput()">Genereer voorbeeldoutput</button>
+    <div class="output" id="outputBox" style="display:none;">
+      🔍 <strong>Voorbeeldoutput:</strong> ChatGPT zou hier een voorstel doen op basis van jouw prompt.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. Reflectie</h2>
+    <p>Wat kun je verbeteren aan je prompt? Wees specifiek: kun je meer context geven? Een doelgroep benoemen? Een stijl aangeven?</p>
+    <input type="text" id="reflectieInput" placeholder="Jouw verbeteridee...">
+  </div>
+
+  <div class="section">
+    <h2>5. Scenario-oefening: ChatGPT in jouw praktijk</h2>
+    <p>Kies een scenario dat aansluit bij jouw werkpraktijk en oefen met een gerichte prompt.</p>
+    <label for="scenarioSelect">Kies een scenario:</label>
+    <select id="scenarioSelect" onchange="vulScenarioPrompt()">
+      <option value="">-- Kies een scenario --</option>
+      <option value="Stel een syllabus op voor een training over feedback geven">Syllabus voor training</option>
+      <option value="Vat een intakegesprek samen in 5 kernpunten">Intakegesprek samenvatten</option>
+      <option value="Genereer drie creatieve werkvormen voor een leiderschapstraining">Werkvormen genereren</option>
+      <option value="Schrijf een e-mail aan een klant met een voorstel voor een teamdag">E-mailvoorstel klant</option>
+    </select>
+    <textarea id="scenarioPrompt" rows="4" placeholder="De prompt verschijnt hier zodra je een scenario kiest..."></textarea>
+  </div>
+
+  <div class="section">
+    <h2>6. Veelgemaakte fouten herkennen</h2>
+    <p>Onderstaande prompt bevat meerdere fouten. Lees goed en probeer te benoemen wat er niet goed is.</p>
+    <div class="feedback-box">
+      "Maak iets voor een training die misschien ergens over communicatie gaat, maar het moet niet te lang zijn."
+    </div>
+    <p><strong>Jouw analyse:</strong> Wat is er onduidelijk, onvolledig of vaag aan deze prompt?</p>
+    <textarea id="analyseInput" rows="3" placeholder="Wat zou jij verbeteren aan deze prompt?"></textarea>
+  </div>
+
+  <div class="section">
+    <h2>7. Zelf een training bouwen met ChatGPT</h2>
+    <p>Geef aan wat je doel is, wie je doelgroep is en welke vorm je zoekt. ChatGPT kan je helpen bij het opzetten van een volledige training.</p>
+    <textarea id="trainingPrompt" rows="4" placeholder="Bijv.: Ontwerp een interactieve leiderschapstraining van 1 dag voor jonge teamleiders in de logistiek."></textarea>
+    <button onclick="showTrainingOutput()">Genereer trainingsvoorstel</button>
+    <div class="output" id="trainingOutputBox" style="display:none;">
+      🧠 <strong>Voorbeeldoutput:</strong> ChatGPT zou hier een structuur of opzet van jouw training tonen.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>8. Download jouw input</h2>
+    <p>Klik hieronder om je ingevulde onderdelen te downloaden als tekstbestand.</p>
+    <button onclick="downloadInput()">Download mijn input</button>
+  </div>
+
+  <script>
+    function showOutput() {
+      document.getElementById('outputBox').style.display = 'block';
+    }
+
+    function showTrainingOutput() {
+      document.getElementById('trainingOutputBox').style.display = 'block';
+    }
+
+    function vulScenarioPrompt() {
+      const prompt = document.getElementById('scenarioSelect').value;
+      document.getElementById('scenarioPrompt').value = prompt;
+    }
+
+    function downloadInput() {
+      const prompt = document.getElementById('promptInput').value;
+      const reflectie = document.getElementById('reflectieInput').value;
+      const scenario = document.getElementById('scenarioPrompt').value;
+      const analyse = document.getElementById('analyseInput').value;
+      const training = document.getElementById('trainingPrompt').value;
+
+      const tekst = `--- Jouw ChatGPT Module Output ---\n\nPrompt: ${prompt}\nReflectie: ${reflectie}\nScenario Prompt: ${scenario}\nFoutenanalyse: ${analyse}\nTraining Idee: ${training}`;
+
+      const blob = new Blob([tekst], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'chatgpt-module-output.txt';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>
