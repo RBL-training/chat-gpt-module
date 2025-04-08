@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactieve ChatGPT Module voor Trainers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: Arial, sans-serif; padding: 2rem; background-color: #f4f4f4; }
+        h1, h2 { color: #333; }
+        .section { background: white; padding: 1rem; margin-bottom: 1rem; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        textarea, input[type=text] { width: 100%; padding: 0.5rem; margin-top: 0.5rem; }
+        button { margin-top: 1rem; padding: 0.5rem 1rem; }
+        .output { background: #eef; padding: 0.5rem; margin-top: 0.5rem; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Interactieve AI Module voor Freelance Trainers</h1>
+    <div class="section">
+        <h2>1. Introductie</h2>
+        <p>Deze module leert je hoe je ChatGPT effectief inzet in jouw praktijk als trainer en ondernemer. Gebruik de invulvelden om direct te oefenen met prompts.</p>
+    </div>
+
+    <div class="section">
+        <h2>2. Schrijf een prompt</h2>
+        <label for="promptInput">Wat wil je dat ChatGPT voor je doet?</label>
+        <textarea id="promptInput" rows="4"></textarea>
+        <button onclick="showOutput()">Genereer voorbeeldoutput</button>
+        <div class="output" id="outputBox" style="display:none;">🔍 <strong>Voorbeeldoutput:</strong> ChatGPT zou hier een voorstel doen op basis van jouw prompt.</div>
+    </div>
+
+    <div class="section">
+        <h2>3. Reflectie</h2>
+        <p>Wat kun je verbeteren aan je prompt?</p>
+        <input type="text" placeholder="Jouw verbeteridee...">
+    </div>
+
+    <script>
+        function showOutput() {
+            document.getElementById('outputBox').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
